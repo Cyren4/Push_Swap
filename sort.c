@@ -6,7 +6,7 @@
 /*   By: cramdani <cramdani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/13 20:34:25 by cramdani          #+#    #+#             */
-/*   Updated: 2021/06/17 17:47:32 by cramdani         ###   ########.fr       */
+/*   Updated: 2021/06/18 23:49:21 by cramdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,26 +38,27 @@ void	sort3(t_file *f)
 	if (f->nbElt > 2)
 	{
 		if (f->head->val > f->head->next->val && f->head->val > f->tail->val)
-			solo_op(f, &rotate);
+			f->trie = ft_strjoin(f->trie, solo_op(f, &rotate));
 		else if (f->head->next->val > f->head->val
 			&& f->head->next->val > f->tail->val)
-			solo_op(f, &rev_rotate);
+			f->trie = ft_strjoin(f->trie, solo_op(f, &rev_rotate));
 	}
 	if (f->nbElt >= 2 && f->head->val > f->head->next->val)
-		solo_op(f, &swap);
+		f->trie = ft_strjoin(f->trie, solo_op(f, &swap));
+		// printf("%s", solo_op(f, &swap));
 }
 
 void	emptyB(t_file *a, t_file *b)
 {
 	while (!emptyFile(b))
-		push(b, a);
+		a->trie = ft_strjoin(a->trie, push(b, a));
 }
 
 void	sort10(t_file *a, t_file *b)
 {
 	if (order(a, a->nbElt, &asc))
 		return ;
-	while (a->nbElt > 3)
+	while (a->nbElt > 3 && !order(a, a->nbElt, &asc))
 		findMin(a, b);
 	sort3(a);
 	emptyB(a, b);

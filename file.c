@@ -6,7 +6,7 @@
 /*   By: cramdani <cramdani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/13 17:30:48 by cramdani          #+#    #+#             */
-/*   Updated: 2021/06/17 17:45:00 by cramdani         ###   ########.fr       */
+/*   Updated: 2021/06/18 21:07:25 by cramdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ t_file	*initFile(char c)
 	f->nbElt = 0;
 	f->head = NULL;
 	f->tail = NULL;
+	f->trie = ft_strdup("");
 	return (f);
 }
 
@@ -49,7 +50,7 @@ t_file	*add(t_file *f, int val)
 	return (f);
 }
 
-int	clear(t_file *f)
+int	clear_file(t_file *f)
 {
 	t_eltFile	*tmp;
 
@@ -61,6 +62,7 @@ int	clear(t_file *f)
 		tmp = f->head;
 		f->nbElt--;
 	}
+	free(f->trie);
 	free(f);
 	return (-1);
 }

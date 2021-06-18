@@ -6,7 +6,7 @@
 /*   By: cramdani <cramdani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/14 19:18:03 by cramdani          #+#    #+#             */
-/*   Updated: 2021/06/17 16:30:06 by cramdani         ###   ########.fr       */
+/*   Updated: 2021/06/18 23:46:20 by cramdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,11 @@ void	moveLess(t_file *a, t_file *b, int ref)
 	while (!allAbove(a, ref))
 	{
 		if (a->head->val < ref)
-			push(a, b);
+			a->trie = ft_strjoin(a->trie, push(a, b));
 		else if (a->tail->val < ref)
 		{
-			solo_op(a, &rev_rotate);
-			push(a, b);
+			a->trie = ft_strjoin(a->trie, solo_op(a, &rev_rotate));
+			a->trie = ft_strjoin(a->trie, push(a, b));
 		}
 		else
 		{
@@ -68,8 +68,8 @@ void	moveLess(t_file *a, t_file *b, int ref)
 			else
 				op = &rev_rotate;
 			while (!(a->head->val < ref))
-				solo_op(a, op);
-			push(a, b);
+				a->trie = ft_strjoin(a->trie, solo_op(a, op));
+			a->trie = ft_strjoin(a->trie, push(a, b));
 		}
 	}
 }
@@ -96,7 +96,7 @@ int	bestOp(t_file *f, int ref)
 		return (0);
 }
 
-void	chunksort(t_file *a, t_file *b, int div)
+int	chunksort(t_file *a, t_file *b, int div)
 {
 	int	*tab;
 	int	index;
@@ -106,11 +106,7 @@ void	chunksort(t_file *a, t_file *b, int div)
 	index = nbElt / div;
 	tab = sort_tab(a, a->nbElt);
 	if (!tab)
-	{
-		clear(a);
-		clear(b);
-		exit(EXIT_FAILURE);
-	}
+		return (0);
 	while (a->nbElt > 3)
 	{
 		moveLess(a, b, tab[index]);
@@ -123,4 +119,5 @@ void	chunksort(t_file *a, t_file *b, int div)
 	while (!emptyFile(b))
 		findMax(b, a);
 	free(tab);
+	return (1);
 }

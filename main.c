@@ -1,5 +1,27 @@
 #include "push_swap.h"
 
+void	shortestSort(t_file *a, t_file *b, int nb)
+{
+	int	i;
+	char	*min;
+	t_file *dup;
+
+	i = 0;
+	min = NULL;
+	while (i < 4)
+	{
+		dup = duplicateFile(a);
+		chunksort(dup, b, nb + i);
+		// if (chunksort(dup, b, nb + i) == -1); clear(a, b)
+		if (min == NULL || ft_strlen(dup->trie) < ft_strlen(min))
+			min = ft_strdup(dup->trie);
+		clear_file(dup);
+		i++;
+	}
+	printf("%s", min);
+}
+
+
 int	main(int ac, char **av)
 {
 	t_file	*a;
@@ -12,17 +34,23 @@ int	main(int ac, char **av)
 	{
 		b = initFile('b');
 		if (b == NULL)
-			return (clear(a));
+			return (clear_file(a));
 		if (a->nbElt <= 3)
+		{
 			sort3(a);
+			printf("%s", a->trie);
+		}
 		else if (a->nbElt < 50)
+		{
 			sort10(a, b);
+			printf("%s", a->trie);
+		}
 		else if (a->nbElt <= 100)
-			chunksort(a, b, 5);
+			shortestSort(a, b, 3);// chunksort(a, b, 5);
 		else
-			chunksort(a, b, 10);
-		clear(b);
+			shortestSort(a, b, 8);// chunksort(a, b, 5);
+		clear_file(b);
 	}
-	clear(a);
+	clear_file(a);
 	return (0);
 }

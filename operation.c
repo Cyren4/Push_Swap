@@ -6,7 +6,7 @@
 /*   By: cramdani <cramdani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/13 17:33:55 by cramdani          #+#    #+#             */
-/*   Updated: 2021/06/17 17:32:29 by cramdani         ###   ########.fr       */
+/*   Updated: 2021/06/18 23:21:09 by cramdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,13 @@ int	swap(t_file *f)
 	return (1);
 }
 
-void	push(t_file *src, t_file *dest)
+char	*push(t_file *src, t_file *dest)
 {
 	t_eltFile	*tmp;
+	char	*ret;
 
 	if (emptyFile(src))
-		return ;
+		return (NULL);
 	tmp = src->head;
 	src->head = src->head->next;
 	if (src->head == NULL)
@@ -40,7 +41,9 @@ void	push(t_file *src, t_file *dest)
 	dest->head = tmp;
 	src->nbElt--;
 	dest->nbElt++;
-	ft_printf("p%c\n", dest->name);
+	ret = ft_strdup("pp\n");
+	ret[1] = dest->name;// ft_printf("p%c\n", dest->name);
+	return (ret);
 }
 
 int	rotate(t_file *f)

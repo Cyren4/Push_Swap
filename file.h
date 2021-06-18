@@ -6,7 +6,7 @@
 /*   By: cramdani <cramdani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/13 16:16:50 by cramdani          #+#    #+#             */
-/*   Updated: 2021/06/17 17:46:05 by cramdani         ###   ########.fr       */
+/*   Updated: 2021/06/18 23:21:08 by cramdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdio.h>
+#include "libft/libft.h"
 
 typedef struct s_eltFile {
 	int					val;
@@ -27,20 +28,22 @@ typedef struct s_file{
 	int			nbElt;
 	t_eltFile	*head;
 	t_eltFile	*tail;
+	char		*trie;
 }	t_file;
 
 /* file.c */
 t_file	*initFile(char c);
 t_file	*add(t_file *f, int val);
 int		emptyFile(t_file *f);
-int		clear(t_file *f);
+int		clear_file(t_file *f);
+t_file	*duplicateFile(t_file *f);
 
 /* operation.c */
-void	solo_op(t_file *f, int (*op)(t_file *));
+char	*solo_op(t_file *f, int (*op)(t_file *));
 int		swap(t_file *f);
-void	push(t_file *src, t_file *dest);
+char	*push(t_file *src, t_file *dest);
 int		rotate(t_file *f);
 int		rev_rotate(t_file *f);
-void	doubleOp(t_file *f1, t_file *f2, int (*op)(t_file *));
+char	*doubleOp(t_file *f1, t_file *f2, int (*op)(t_file *));
 
 #endif

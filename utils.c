@@ -6,7 +6,7 @@
 /*   By: cramdani <cramdani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 16:23:42 by cramdani          #+#    #+#             */
-/*   Updated: 2021/06/17 15:42:58 by cramdani         ###   ########.fr       */
+/*   Updated: 2021/06/18 23:47:09 by cramdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,12 @@ void	find(t_file *a, t_file *b, int (*test)(int, int))
 	int			i;
 	int			(*op)(t_file *);
 	t_eltFile	*tmp;
+	t_file		*which;
 
+	if (a->name == 'a')
+		which = a;
+	else
+		which = b;
 	i = 0;
 	found = a->head->val;
 	tmp = a->head;
@@ -46,8 +51,8 @@ void	find(t_file *a, t_file *b, int (*test)(int, int))
 		i++;
 	}
 	while (a->head->val != found)
-		solo_op(a, op);
-	push(a, b);
+		which->trie = ft_strjoin(which->trie, solo_op(a, op));
+	which->trie = ft_strjoin(which->trie, push(a, b));
 }
 
 void	findMin(t_file *a, t_file *b)
