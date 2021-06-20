@@ -39,7 +39,7 @@ static size_t	start(char const *s1, char const *set)
 static size_t	check_size(char const *s1, char const *set)
 {
 	size_t	len;
-	size_t	i;
+	int	i;
 
 	i = ft_strlen(s1) - 1;
 	while (s1[i] && i >= 0 && is_unwanted(s1[i], set))
