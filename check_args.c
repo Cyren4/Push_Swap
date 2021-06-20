@@ -6,7 +6,7 @@
 /*   By: cramdani <cramdani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/13 20:35:48 by cramdani          #+#    #+#             */
-/*   Updated: 2021/06/18 22:32:56 by cramdani         ###   ########.fr       */
+/*   Updated: 2021/06/20 14:51:26 by cramdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	valid_int(char *str)
 	int			neg;
 
 	if (ft_strlen(str) > 11 || ft_strlen(str) == 0
-	    || (ft_strlen(str) == 1 && str[0] == '-'))
+		|| (ft_strlen(str) == 1 && str[0] == '-'))
 		return (0);
 	i = 0;
 	nbr = 0;
@@ -42,8 +42,8 @@ int	valid_int(char *str)
 
 t_file	*duplicateFile(t_file *f)
 {
-	t_file	*new;
-	t_eltFile *tmp;
+	t_file		*new;
+	t_eltFile	*tmp;
 
 	tmp = f->head;
 	new = initFile('a');
@@ -54,6 +54,7 @@ t_file	*duplicateFile(t_file *f)
 	}
 	return (new);
 }
+
 // return 1 si nb n'est pas deja dans la stack 0 sinon
 int	not_in_file(t_file *f, int nb)
 {

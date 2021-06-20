@@ -6,7 +6,7 @@
 /*   By: cramdani <cramdani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/24 12:58:14 by cramdani          #+#    #+#             */
-/*   Updated: 2021/06/17 12:46:13 by cramdani         ###   ########.fr       */
+/*   Updated: 2021/06/20 14:34:20 by cramdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,9 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include "libft.h"
-# define BUFFER_SIZE 1000
+# define BUFFER_SIZE 100
 
 int		get_next_line(int fd, char **line);
-char	*lks(char *tmp);
 int		check_n(char *line);
 char	*ft_strjoin2(char *s1, char *s2);
 char	*ft_strdup2(char *s1);

@@ -2,9 +2,9 @@
 
 void	shortestSort(t_file *a, t_file *b, int nb)
 {
-	int	i;
+	int		i;
 	char	*min;
-	t_file *dup;
+	t_file	*dup;
 
 	i = 0;
 	min = NULL;
@@ -12,7 +12,6 @@ void	shortestSort(t_file *a, t_file *b, int nb)
 	{
 		dup = duplicateFile(a);
 		chunksort(dup, b, nb + i);
-		// if (chunksort(dup, b, nb + i) == -1); clear(a, b)
 		if (min == NULL || ft_strlen(dup->trie) < ft_strlen(min))
 			min = ft_strdup(dup->trie);
 		clear_file(dup);
@@ -20,7 +19,6 @@ void	shortestSort(t_file *a, t_file *b, int nb)
 	}
 	printf("%s", min);
 }
-
 
 int	main(int ac, char **av)
 {
@@ -46,9 +44,9 @@ int	main(int ac, char **av)
 			printf("%s", a->trie);
 		}
 		else if (a->nbElt <= 100)
-			shortestSort(a, b, 3);// chunksort(a, b, 5);
+			shortestSort(a, b, 3);
 		else
-			shortestSort(a, b, 8);// chunksort(a, b, 5);
+			shortestSort(a, b, 8);
 		clear_file(b);
 	}
 	clear_file(a);

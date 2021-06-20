@@ -6,7 +6,7 @@
 /*   By: cramdani <cramdani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/24 12:57:50 by cramdani          #+#    #+#             */
-/*   Updated: 2021/06/17 12:46:21 by cramdani         ###   ########.fr       */
+/*   Updated: 2021/06/20 14:35:36 by cramdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,17 +35,22 @@ char	*ft_strjoin2(char *s1, char *s2)
 	int		j;
 	char	*str;
 
-	i = -1;
-	j = -1;
+	i = 0;
+	j = 0;
 	len = ft_strlen(s1) + ft_strlen(s2);
 	str = malloc(sizeof(char) * (len + 1));
 	if (!str)
 		return (NULL);
-	str[len] = '\0';
-	while (s1 && s1[++i])
+	while (s1 && s1[i])
+	{
 		str[i] = s1[i];
-	while (s2 && s2[++j])
+		i++;
+	}
+	while (s2 && s2[j])
+	{
 		str[i + j] = s2[j];
+		j++;
+	}
 	str[i + j] = 0;
 	if (s1)
 		free(s1);

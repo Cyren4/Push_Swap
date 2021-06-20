@@ -6,7 +6,7 @@
 /*   By: cramdani <cramdani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/16 17:30:27 by cramdani          #+#    #+#             */
-/*   Updated: 2021/06/13 14:04:18 by cramdani         ###   ########.fr       */
+/*   Updated: 2021/06/20 14:50:04 by cramdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static size_t	start(char const *s1, char const *set)
 static size_t	check_size(char const *s1, char const *set)
 {
 	size_t	len;
-	int	i;
+	int		i;
 
 	i = ft_strlen(s1) - 1;
 	while (s1[i] && i >= 0 && is_unwanted(s1[i], set))

@@ -6,7 +6,7 @@
 /*   By: cramdani <cramdani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 11:25:22 by cramdani          #+#    #+#             */
-/*   Updated: 2021/06/17 17:42:54 by cramdani         ###   ########.fr       */
+/*   Updated: 2021/06/20 13:11:42 by cramdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,5 +79,7 @@ int				check_size2(int nb, int size);
 char			*ft_convert_base(char *nb, char *base_from, char *base_to);
 char			*convert(int nb, char *base);
 void			*ft_realloc(void *ptr, size_t new_size);
+
+int				get_next_line(int fd, char **line);
 
 #endif

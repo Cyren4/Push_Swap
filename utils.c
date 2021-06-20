@@ -6,7 +6,7 @@
 /*   By: cramdani <cramdani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 16:23:42 by cramdani          #+#    #+#             */
-/*   Updated: 2021/06/18 23:47:09 by cramdani         ###   ########.fr       */
+/*   Updated: 2021/06/20 21:42:40 by cramdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,9 @@ void	find(t_file *a, t_file *b, int (*test)(int, int))
 	t_eltFile	*tmp;
 	t_file		*which;
 
+	which = b;
 	if (a->name == 'a')
 		which = a;
-	else
-		which = b;
 	i = 0;
 	found = a->head->val;
 	tmp = a->head;
@@ -42,10 +41,9 @@ void	find(t_file *a, t_file *b, int (*test)(int, int))
 		if (test(tmp->val, found))
 		{
 			found = tmp->val;
+			op = &rev_rotate;
 			if (i <= a->nbElt / 2)
 				op = &rotate;
-			else
-				op = &rev_rotate;
 		}
 		tmp = tmp->next;
 		i++;

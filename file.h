@@ -6,7 +6,7 @@
 /*   By: cramdani <cramdani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/13 16:16:50 by cramdani          #+#    #+#             */
-/*   Updated: 2021/06/18 23:21:08 by cramdani         ###   ########.fr       */
+/*   Updated: 2021/06/20 13:10:44 by cramdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdio.h>
-#include "libft/libft.h"
+# include "libft/libft.h"
 
 typedef struct s_eltFile {
 	int					val;

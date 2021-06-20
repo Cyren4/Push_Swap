@@ -6,13 +6,13 @@
 /*   By: cramdani <cramdani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/14 16:36:03 by cramdani          #+#    #+#             */
-/*   Updated: 2021/06/18 23:40:06 by cramdani         ###   ########.fr       */
+/*   Updated: 2021/06/20 21:37:41 by cramdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-char*	solo_op(t_file *f, int (*op)(t_file *))
+char	*solo_op(t_file *f, int (*op)(t_file *))
 {
 	char	*which;
 
@@ -46,13 +46,13 @@ char	*doubleOp(t_file *f1, t_file *f2, int (*op)(t_file *))
 	r1 = (*op)(f1);
 	r2 = (*op)(f2);
 	if (r1 && r2)
-		return (which);//ft_putstr_fd(which, 1);
+		return (which);
 	else if (r1 || r2)
 	{
 		if (r1)
-			which[ft_strlen(which) - 2] = f1->name;//write(1, &f1->name, 1);
+			which[ft_strlen(which) - 2] = f1->name;
 		else
-			which[ft_strlen(which) - 2] = f2->name;//write(1, &f1->name, 1);
+			which[ft_strlen(which) - 2] = f2->name;
 		return (which);
 	}
 	free(which);

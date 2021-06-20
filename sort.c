@@ -6,7 +6,7 @@
 /*   By: cramdani <cramdani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/13 20:34:25 by cramdani          #+#    #+#             */
-/*   Updated: 2021/06/18 23:49:21 by cramdani         ###   ########.fr       */
+/*   Updated: 2021/06/20 21:40:33 by cramdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ void	sort3(t_file *f)
 	}
 	if (f->nbElt >= 2 && f->head->val > f->head->next->val)
 		f->trie = ft_strjoin(f->trie, solo_op(f, &swap));
-		// printf("%s", solo_op(f, &swap));
 }
 
 void	emptyB(t_file *a, t_file *b)

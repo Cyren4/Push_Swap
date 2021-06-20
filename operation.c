@@ -6,7 +6,7 @@
 /*   By: cramdani <cramdani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/13 17:33:55 by cramdani          #+#    #+#             */
-/*   Updated: 2021/06/18 23:21:09 by cramdani         ###   ########.fr       */
+/*   Updated: 2021/06/20 21:40:09 by cramdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	swap(t_file *f)
 char	*push(t_file *src, t_file *dest)
 {
 	t_eltFile	*tmp;
-	char	*ret;
+	char		*ret;
 
 	if (emptyFile(src))
 		return (NULL);
@@ -42,7 +42,7 @@ char	*push(t_file *src, t_file *dest)
 	src->nbElt--;
 	dest->nbElt++;
 	ret = ft_strdup("pp\n");
-	ret[1] = dest->name;// ft_printf("p%c\n", dest->name);
+	ret[1] = dest->name;
 	return (ret);
 }
 

@@ -6,7 +6,7 @@
 /*   By: cramdani <cramdani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/13 13:47:21 by cramdani          #+#    #+#             */
-/*   Updated: 2021/06/18 23:38:15 by cramdani         ###   ########.fr       */
+/*   Updated: 2021/06/20 21:41:01 by cramdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,6 @@ void	min(t_file *f, int *tab, int i, int size);
 int		allAbove(t_file *f, int ref);
 void	moveLess(t_file *a, t_file *b, int ref);
 int		bestOp(t_file *f, int ref);
-int     chunksort(t_file *a, t_file *b, int div);
+int		chunksort(t_file *a, t_file *b, int div);
 
 #endif
