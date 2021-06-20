@@ -19,7 +19,8 @@ int	valid_int(char *str)
 	long int	nbr;
 	int			neg;
 
-	if (ft_strlen(str) > 10 || (ft_strlen(str) == 1 && str[0] == '-'))
+	if (ft_strlen(str) > 11 || ft_strlen(str) == 0
+	    || (ft_strlen(str) == 1 && str[0] == '-'))
 		return (0);
 	i = 0;
 	nbr = 0;
@@ -89,7 +90,7 @@ int	check_args(t_file *f, int ac, char **av)
 			}
 			else
 			{
-				ft_putendl_fd("Error\n", 2);
+				ft_putendl_fd("Error", 2);
 				clear_file(f);
 				exit(EXIT_FAILURE);
 			}
