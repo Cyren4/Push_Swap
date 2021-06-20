@@ -21,7 +21,7 @@ CC		= gcc
 
 RM		= rm -f
 
-CFLAGS	= -Wall -Wextra -Werror -I${HEADER}
+CFLAGS	= -Wall -Wextra -Werror
 
 
 all:	${NAME}
